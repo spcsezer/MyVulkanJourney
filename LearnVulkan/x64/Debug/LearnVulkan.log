@@ -1,5 +1,2 @@
 ﻿  InitVulkan.cpp
-  main.cpp
-  Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   LearnVulkan.vcxproj -> E:\Projects\VisualStudio\Vulkan\LearnVulkan\x64\Debug\LearnVulkan.exe

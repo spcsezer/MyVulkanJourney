@@ -59,12 +59,24 @@ private:
 	VkPipelineLayout pipelineLayout;
 
 	VkPipeline graphicsPipeline;
+
+	std::vector<VkFramebuffer> swapChainFrameBuffers;
+
+	VkCommandPool commandPool;
+	VkCommandBuffer commandBuffer;
+
+	VkSemaphore imageAvailableSemaphore;
+	VkSemaphore renderFinishedSemaphore;
+	VkFence inFlightFence;
 	
 	void initWindow();
 
 	void initVulkan();
 
 	void mainLoop();
+	//--Main loop functions--
+	void drawFrame();
+	//----
 
 	void cleanUp();
 
@@ -77,6 +89,10 @@ private:
 	void createImageViews();
 	void createRenderPass();
 	void createGraphicsPipeline();
+	void createFrameBuffers();
+	void createCommandPool();
+	void createCommandBuffer();
+	void createSyncObjects();
 
 	QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
 	SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
@@ -89,6 +105,8 @@ private:
 	VkSurfaceFormatKHR chooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR>& availableFormats);
 	VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
 	VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
+
+	void recordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex);
 	
 	VkShaderModule createShaderModule(const std::vector<char>& code);
 
