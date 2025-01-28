@@ -54,6 +54,11 @@ private:
 
 	VkFormat swapChainImageFormat;
 	VkExtent2D swapChainExtent;
+
+	VkRenderPass renderPass;
+	VkPipelineLayout pipelineLayout;
+
+	VkPipeline graphicsPipeline;
 	
 	void initWindow();
 
@@ -70,6 +75,7 @@ private:
 	void createLogicalDevice();
 	void createSwapChain();
 	void createImageViews();
+	void createRenderPass();
 	void createGraphicsPipeline();
 
 	QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
